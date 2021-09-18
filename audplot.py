@@ -39,7 +39,7 @@ def create_signal(file: str) -> np.ndarray:
     except:
         raise Exception(Back.RED + Fore.WHITE + f"Read failed: {name}.wav" + Style.RESET_ALL)
 
-    print(Fore.YELLOW + f"Signal was created({file})\n" + Style.RESET_ALL)
+    print(Fore.YELLOW + f"Signal was created ({file})\n" + Style.RESET_ALL)
 
     return signal
 
