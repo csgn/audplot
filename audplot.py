@@ -27,7 +27,7 @@ def record(name: str, duration: int) -> str:
         sd.wait()
         write(output_file, SAMPLE_RATE, rec)
     except:
-        raise Exception(Back.RED+Fore.WHITE+"Recording failed: {}"+Style.RESET_ALL .format(name))
+        raise Exception(Back.RED+Fore.WHITE+f"Recording failed: {name}"+Style.RESET_ALL)
 
     return output_file
 
