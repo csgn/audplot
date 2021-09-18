@@ -32,7 +32,7 @@ def record(name: str, duration: int) -> str:
 
     return output_file
 
-def create_signal(file: str):
+def create_signal(file: str) -> np.ndarray:
     spf = wave.open(file, "r")
     signal = spf.readframes(-1)
     signal = np.frombuffer(signal, np.int16)
