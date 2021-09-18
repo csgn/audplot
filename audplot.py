@@ -58,17 +58,15 @@ def ploty(count: int, names: List[str], signal_data: List[np.ndarray]) -> None:
     plt.show()
 
 def start(duration: int, count: int, names: List[str]) -> None:
-    rec_data: List[str] = []
     signal_data: List[np.ndarray] = []
     
-    for it, name in enumerate(names):
+    for name in names:
         input(Fore.GREEN + f"Start recording for {name} (Press enter)" + Style.RESET_ALL)
         print(Fore.BLUE + f"({name}) Recording..." + Style.RESET_ALL)
         
         rec = record(name, duration)
-        rec_data.append(rec)
         
-        signal = create_signal(rec_data[it])
+        signal = create_signal(rec)
         signal_data.append(signal)
     
     ploty(count, names, signal_data)
