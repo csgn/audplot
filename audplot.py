@@ -64,9 +64,10 @@ def start(duration: int, count: int, names: List[str]) -> None:
     for it, name in enumerate(names):
         input(Fore.GREEN + f"Start recording for {name} (Press enter)" + Style.RESET_ALL)
         print(Fore.BLUE + f"({name}) Recording..." + Style.RESET_ALL)
-        rec = record(name, duration)
         
+        rec = record(name, duration)
         rec_data.append(rec)
+        
         signal = create_signal(rec_data[it])
         signal_data.append(signal)
     
