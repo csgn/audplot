@@ -89,7 +89,7 @@ if __name__ == '__main__':
     names: List[str] = [str(name) for name in args.names.split(',')]
 
     if count != len(names):
-        print(f"count argument and names length must be same size: {count} != {len(names)}")
+        print(f"length of count and length of names must be same: {count} != {len(names)}")
         sys.exit(0)
 
     start(duration, count, names)
