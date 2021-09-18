@@ -23,3 +23,5 @@ optional arguments:
 ```
   $ python audplot.py -d 5 -c 3 -n human1,human2,human3
 ```
+
+![figure](figure.png)
