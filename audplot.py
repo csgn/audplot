@@ -22,10 +22,9 @@ COLORS = [
 def record(name: str, duration: int) -> str:
     output_file = name + '.wav'
 
-    rec = sd.rec(int(duration * SAMPLE_RATE), samplerate=SAMPLE_RATE, channels=CHANNELS, dtype=np.int16)
-    sd.wait()
-
     try:
+        rec = sd.rec(int(duration * SAMPLE_RATE), samplerate=SAMPLE_RATE, channels=CHANNELS, dtype=np.int16)
+        sd.wait()
         write(output_file, SAMPLE_RATE, rec)
     except:
         raise Exception(Back.RED+Fore.WHITE+"Recording failed: {}"+Style.RESET_ALL .format(name))
