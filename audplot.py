@@ -43,21 +43,21 @@ def create_signal(file: str) -> np.ndarray:
 
     return signal
 
-def ploty(count: int, names: List[str], signal_data: List[np.ndarray]) -> None:
-    if count == 1:
+def ploty(names: List[str], signal_data: List[np.ndarray]) -> None:
+    if len(names) == 1:
         plt.plot(signal_data[0], random.choice(COLORS))
         plt.title(names[0])
     else:
-        fig, axs = plt.subplots(count)
+        fig, axs = plt.subplots(len(names))
 
-        for c in range(count):
+        for c in range(len(names)):
             axs[c].plot(signal_data[c], random.choice(COLORS))
             axs[c].set_title(names[c])
     
         fig.tight_layout()
     plt.show()
 
-def start(duration: int, count: int, names: List[str]) -> None:
+def start(duration: int, names: List[str]) -> None:
     signal_data: List[np.ndarray] = []
     
     for name in names:
@@ -69,22 +69,16 @@ def start(duration: int, count: int, names: List[str]) -> None:
         signal = create_signal(rec)
         signal_data.append(signal)
     
-    ploty(count, names, signal_data)
+    ploty(names, signal_data)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--duration", type=int, required=True, help="recording duration")
-    parser.add_argument("-c", "--count", type=int, required=True, help="count of sound")
     parser.add_argument("-n", "--names", type=str, required=True, help="list of name")
 
     args = parser.parse_args()
     
     duration: int = args.duration
-    count: int = args.count
     names: List[str] = [str(name) for name in args.names.split(',')]
 
-    if count != len(names):
-        print(f"length of count and length of names must be same: {count} != {len(names)}")
-        sys.exit(0)
-
-    start(duration, count, names)
+    start(duration, names)
