@@ -7,7 +7,7 @@
 
 ## Usage
 ```
-usage: audplot.py [-h] -d DURATION -c COUNT -n NAMES
+usage: audplot.py [-h] -d DURATION -n NAMES
 
 optional arguments:
   -h,          --help                 show this help message and exit
